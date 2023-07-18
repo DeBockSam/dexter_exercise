@@ -59,12 +59,13 @@ You could force these values for the whole page.tsx with route-segment-config op
 (EXTRA QUESTION): In the last question of step 3 we statically pre-rendered a few detail pages of pokémon. Could we make it so only those pokémon routes are available & others return a 404?
 (Tip for extra question: use the info of this step :) )
 
-## Step 7: Server components vs. client components (+ loading.tsx & error.tsx)
+## Step 7: Server components vs. client components
 
-Normally we shouldn't have had to use dynamic or client side functionality. Everything could be fully pre-rendered on the server. So a.t.m. our react just receives HTML & doesn't need to do any hydration etc. All our fetch logic etc. is also not send to the client side.
+Until now we could solve all with server components.
+Everything could be fully pre-rendered on the server. So a.t.m. our react just receives HTML & doesn't need to do any hydration etc. All our fetch logic etc. is also not send to the client side, keeping our bundle size to a minimum.
 What if we want to add some functionality that would be needed on the client side.
 
-- Adapt our route handler so it accepts our filter parameters & returns the list filtered
+- We can handle the filtering server or client side.
 - add a loading.tsx to show when we are fetching the list. (this is actually a suspense boundary, you can toggle this via react developer tools. Or place timeout in our api call so you can see it more clearly if you want)
 - add error.tsx (force an error. You should see the error message)
 - Filter / search in list: name / number / type
@@ -78,5 +79,4 @@ Tips:
 - When on homepage i want the detail to open up in a modal / or to the side when i click on it instead of linking through to the detail route. While still being able to refresh the page, share the page use backwards navigation to go to the list & reopen the modal again on forwards navigation.
 
 Tips:
-
 - Intercepting Routes + Parallel routes
